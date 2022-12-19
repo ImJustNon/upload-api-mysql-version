@@ -33,9 +33,9 @@ const request = require('request'); //ใช้ request
 ```
 6) ร้องขอข้อมูล ใช้ 
 ```asciidoc
-    เเบบ 1 :: http://127.0.0.1:8800/api/call?image=[ขื่อภาพ]
+เเบบ 1 :: http://127.0.0.1:8800/api/call?image=[ขื่อภาพ]
                                 หรือ
-    เเบบ 2 :: http://127.0.0.1:8800/uploads/[ชื่อภาพ เเละ formatของถาพเช่น png jpg jpeg]
+เเบบ 2 :: http://127.0.0.1:8800/uploads/[ชื่อภาพ เเละ formatของถาพเช่น png jpg jpeg]
 ```
 7) ลบข้อมูล 
 ```js
