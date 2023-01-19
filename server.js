@@ -16,6 +16,15 @@ app.use(express.json({limit: '50mb'}));
 app.use(urlencoded);
 app.use(express.static(path.join(__dirname,'./public')));
 app.use(express.static(path.join(__dirname,'./node_modules')));
+app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+    next(); 
+});
+
 
 fs.readdirSync("./routers").forEach(async files => {
     let router = require(`./routers/${files}`);

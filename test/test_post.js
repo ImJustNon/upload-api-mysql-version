@@ -16,7 +16,7 @@ var request = require('request');
 
 
     /*await request.post({
-        url: 'http://127.0.0.1:8800/upload-image',
+        url: 'http://127.0.0.1:9999/upload-image',
         headers: {
             'content-type' : 'application/x-www-form-urlencoded'
         },
@@ -28,13 +28,13 @@ var request = require('request');
     });*/
 
 
-    /*await request.get(`http://127.0.0.1:8800/upload-image?image=${data}`,async function (error, response, body) {
+    /*await request.get(`http://127.0.0.1:9999/upload-image?image=${data}`,async function (error, response, body) {
         console.log(response);
     });*/
         
 
     const options = {
-        uri: 'http://127.0.0.1:8800/api/upload-image',
+        uri: 'http://45.130.141.157:8800/api/upload-image',
         method: 'POST',
         json: {
           "file": `${data}`,
@@ -44,7 +44,7 @@ var request = require('request');
 
     request(options, function (error, response, body) {
         if(error){
-            console.log(error);
+            return console.log(error);
         }
         console.log(response.body)
     });
