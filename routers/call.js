@@ -35,7 +35,7 @@ router.get('/api/call', urlencoded, async(req, res) =>{ // รับโพส �
     }
 
     console.log(`[API] GET ${image_data.result.rows[0].filename}.${image_data.result.rows[0].filetype} From : ${await get_ip(req)}`);
-    return res.redirect(`http://${config.app.server_ipV4}:${config.app.port}/uploads/${image_data.result.rows[0].filename}.${image_data.result.rows[0].filetype}`);
+    return res.sendFile(path.join(__dirname + `/../public/uploads/${image_data.result.rows[0].filename}.${image_data.result.rows[0].filetype}`)); // `http://${config.app.server_ipV4}:${config.app.port}/uploads/${image_data.result.rows[0].filename}.${image_data.result.rows[0].filetype}`
 });
 
 module.exports = router;
