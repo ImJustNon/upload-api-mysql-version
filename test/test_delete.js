@@ -37,7 +37,7 @@ var request = require('request');
         uri: 'http://127.0.0.1:8800/api/delete-image',
         method: 'POST',
         json: {
-            "filename" : "Xvsa8kNCkrHn8fJYRJ3i"
+            "filename" : "E7uYcBSP97HV07h0kkD1"
         }
     }
 

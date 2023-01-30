@@ -1,6 +1,6 @@
 <center><h1>HOW TO USE</h1></center>
 
-<center><h3>ตั้งค่า Database</h3></center>
+<center><h3>ตั้งค่า Database (mySQL)</h3></center>
 
 - Table name
 
@@ -100,3 +100,6 @@ const request = require('request');
     });
 })();
 ```
+
+
+<h1>LOL</h1>

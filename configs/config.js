@@ -1,5 +1,6 @@
 module.exports = {
     database: {
+        /*
         postgreSQL: {
             user: 'postgres',
             host: '127.0.0.1',
@@ -7,7 +8,14 @@ module.exports = {
             password: 'Non_912108',
             port: 5432,
             application_name: "upload_file_api", 
-        }
+        },
+        */
+        mySQL: {
+            host: '127.0.0.1',
+            user: 'root',
+            port: 3306,
+            database: 'upload_file_api'
+        },
     },
     app: {
         port: 8800,
