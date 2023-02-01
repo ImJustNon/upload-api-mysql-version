@@ -34,7 +34,7 @@ var request = require('request');
         
 
     const options = {
-        uri: 'http://127.0.0.1:8800/api/upload-image',
+        uri: 'http://45.141.26.136:8800/api/upload-image',
         method: 'POST',
         json: {
           "file": `${data}`,
