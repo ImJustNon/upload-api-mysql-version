@@ -1,3 +1,66 @@
+const mysql = require("mysql");
+
+const config = require('../../configs/config.js');
+const connection = mysql.createConnection(config.database.mySQL);
+
+const connect = async() =>{
+    connection.connect((err) =>{
+        if (err) {
+            console.log(`[Database] mySQL : Cannot connect to database ERROR : ${err}`);
+        } 
+        else {
+            console.log("[Database] mySQL : Connected");
+			
+			// handle disconnect
+			setInterval(async() =>{
+				await connection.query("SELECT 1", (error) =>{
+					if(!error){
+						console.log("[Database] Server Alive!!");
+					} 
+					else {
+						console.log(`[Database] mySQL : Cannot connect to database ERROR : ${error}`);
+					}
+				});
+			}, 120 * 1000);
+        }
+    });
+	
+	
+}
+
+const query = async({ sql }) =>{
+	return new Promise(async(resolve, reject) =>{
+		// no  sql
+        if(typeof sql === "undefined"){
+            throw new Error('Please specify SQL command');
+        }
+		
+		// sql ok
+        if(typeof sql === "string"){
+			try {
+				let all = {};
+				let error = {};
+				await connection.query(sql, async(error, rows, fields) =>{
+					all = Object.assign(rows = {rows: await rows}, fields = {fields: await fields});
+					resolve({
+						result: all,
+						error: await error,
+					});
+				});
+			}
+			catch(e){
+			    console.log(e);	
+			}
+        }
+	});
+}
+
+exports.connection = connection;
+exports.connect = connect;
+exports.query = query;
+
+
+/*
 const mysql = require("mysql2");
 
 const config = require('../../configs/config.js');
@@ -43,7 +106,7 @@ const query = async({ sql }) =>{
 exports.connection = connection;
 exports.connect = connect;
 exports.query = query;
-
+*/
 
 
 // ============================================================================================
